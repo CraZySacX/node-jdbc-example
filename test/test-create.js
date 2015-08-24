@@ -3,15 +3,15 @@ var asyncjs = require('async');
 var nodeunit = require('nodeunit');
 var ex = require('../lib/jdbc-example');
 
-module.exports = {
-  testinitialize: function(test) {
+exports.create = {
+  initialize: function(test) {
     ex.initialize(function(err, result) {
       test.expect(1);
       test.ok(result);
       test.done();
     });
   },
-  testcreate: function(test) {
+  create: function(test) {
     ex.update("CREATE TABLE blah "
             + "(id int, name varchar(10), created_date DATE, "
             +  "created_time TIME, "
@@ -22,7 +22,7 @@ module.exports = {
               test.done();
             });
   },
-  testparallelcreates: function(test) {
+  parallelcreates: function(test) {
     asyncjs.parallel([
       function(callback) {
         ex.update("CREATE TABLE blah0 "
@@ -97,16 +97,5 @@ module.exports = {
       });
       test.done();
     });
-  },
-  testinsert: function(test) {
-    ex.update("INSERT INTO blah "
-            + "VALUES "
-            + "(1, 'Jason', CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP)",
-            function(err, result) {
-              test.expect(2);
-              test.equal(null, err);
-              test.ok(result && result == 1);
-              test.done();
-            });
   },
 };
