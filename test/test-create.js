@@ -12,7 +12,7 @@ module.exports = {
     });
   },
   testcreate: function(test) {
-    ex.create("CREATE TABLE blah "
+    ex.update("CREATE TABLE blah "
             + "(id int, name varchar(10), created_date DATE, "
             +  "created_time TIME, "
             +  "created_timestamp TIMESTAMP)",
@@ -25,7 +25,7 @@ module.exports = {
   testparallelcreates: function(test) {
     asyncjs.parallel([
       function(callback) {
-        ex.create("CREATE TABLE blah0 "
+        ex.update("CREATE TABLE blah0 "
                 + "(id int, name varchar(10), created_date DATE, "
                 +  "created_time TIME, "
                 +  "created_timestamp TIMESTAMP)",
@@ -38,7 +38,7 @@ module.exports = {
                 });
       },
       function(callback) {
-        ex.create("CREATE TABLE blah1 "
+        ex.update("CREATE TABLE blah1 "
                 + "(id int, name varchar(10), created_date DATE, "
                 +  "created_time TIME, "
                 +  "created_timestamp TIMESTAMP)",
@@ -51,7 +51,7 @@ module.exports = {
                 });
       },
       function(callback) {
-        ex.create("CREATE TABLE blah2 "
+        ex.update("CREATE TABLE blah2 "
                 + "(id int, name varchar(10), created_date DATE, "
                 +  "created_time TIME, "
                 +  "created_timestamp TIMESTAMP)",
@@ -64,7 +64,7 @@ module.exports = {
                 });
       },
       function(callback) {
-        ex.create("CREATE TABLE blah3 "
+        ex.update("CREATE TABLE blah3 "
                 + "(id int, name varchar(10), created_date DATE, "
                 +  "created_time TIME, "
                 +  "created_timestamp TIMESTAMP)",
@@ -77,7 +77,7 @@ module.exports = {
                 });
       },
       function(callback) {
-        ex.create("CREATE TABLE blah4 "
+        ex.update("CREATE TABLE blah4 "
                 + "(id int, name varchar(10), created_date DATE, "
                 +  "created_time TIME, "
                 +  "created_timestamp TIMESTAMP)",
@@ -97,5 +97,16 @@ module.exports = {
       });
       test.done();
     });
+  },
+  testinsert: function(test) {
+    ex.update("INSERT INTO blah "
+            + "VALUES "
+            + "(1, 'Jason', CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP)",
+            function(err, result) {
+              test.expect(2);
+              test.equal(null, err);
+              test.ok(result && result == 1);
+              test.done();
+            });
   },
 };

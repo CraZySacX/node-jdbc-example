@@ -1,0 +1,5 @@
+bin
+test
+.emacs.bmk
+drivers
+*.log
