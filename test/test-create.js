@@ -12,7 +12,7 @@ exports.create = {
     });
   },
   create: function(test) {
-    ex.update("CREATE TABLE blah "
+    ex.update("CREATE TABLE BLAH "
             + "(id int, name varchar(10), created_date DATE, "
             +  "created_time TIME, "
             +  "created_timestamp TIMESTAMP)",
