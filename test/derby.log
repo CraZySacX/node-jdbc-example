@@ -1,21 +1,38 @@
-Mon Aug 24 14:24:18 EDT 2015 : Apache Derby Network Server - 10.11.1.1 - (1616546) started and ready to accept connections on port 1527
+Mon Aug 24 14:43:09 EDT 2015 : Apache Derby Network Server - 10.11.1.1 - (1616546) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Mon Aug 24 14:24:29 EDT 2015:
-BooMon Aug 24 14:24:32 EDT 2015 : Apache Derby Network Server - 10.11.1.1 - (1616546) shutdown
-stance a816c00e-014f-60f4-2b5c-0000514b81d3 
-on database directory /home/jozias/projects/node-jdbc-example/test/testdb with class loader sun.misc.Launcher$AppClassLoader@5c647e05 
-Loaded from file:/home/jozias/projects/node-jdbc-example/drivers/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_51-b16
-user.dir=/home/jozias/projects/node-jdbc-example
-os.name=Linux
-os.arch=amd64
-os.version=4.1.6-1-ARCH
-derby.system.home=./test
-Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Mon Aug 24 14:24:32 EDT 2015: Shutting down Derby engine
-----------------------------------------------------------------
-Mon Aug 24 14:24:32 EDT 2015:
-Shutting down instance a816c00e-014f-60f4-2b5c-0000514b81d3 on database directory /home/jozias/projects/node-jdbc-example/test/testdb with class loader sun.misc.Launcher$AppClassLoader@5c647e05 
-----------------------------------------------------------------
+Mon Aug 24 14:43:19 EDT 2015:
+BooMon Aug 24 14:43:22 EDT 2015 : Unexpected exception:
+ {0}
+Mon Aug 24 14:43:22 EDT 2015 : null
+java.lang.NullPointerException
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.removeStubs(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.stop(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.stop(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.shutdown(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.shutdown(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.shutdown(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.shutdown(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.shutdown(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Soujava.lang.NullPointerException
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.derby.impl.store.raw.data.BaseDataFileFactory.removeStubs(Unknown Source)
+	at org.apache.derby.impl.store.raw.Mon Aug 24 14:43:22 EDT 2015 : Apache Derby Network Server - 10.11.1.1 - (1616546) shutdown
+Service.stop(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.shutdown(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.shutdown(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.shutdown(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.shutdown(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.shutdown(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
+	at org.apache.derby.impl.drda.NetworkServerControlImpl.blockingStart(Unknown Source)
+	at org.apache.derby.impl.drda.NetworkServerControlImpl.executeWork(Unknown Source)
+	at org.apache.derby.drda.NetworkServerControl.main(Unknown Source)
+	at org.apache.derby.iapi.tools.run.main(Unknown Source)
+Mon Aug 24 14:43:22 EDT 2015 : Apache Derby Network Server - 10.11.1.1 - (1616546) shutdown

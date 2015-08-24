@@ -4,11 +4,12 @@
   "description": "Node JDBC example",
   "main": "index.js",
   "dependencies": {
-    "jdbc": "=0.1.1-pre.3"
+    "jdbc": "=0.1.1-pre.4"
   },
   "devDependencies": {
     "async": "*",
-    "nodeunit": "*"
+    "nodeunit": "*",
+    "underscore": "*"
   },
   "scripts": {
     "pretest": "bin\/startdbs",
