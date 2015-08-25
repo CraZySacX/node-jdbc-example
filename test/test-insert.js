@@ -3,7 +3,7 @@ var asyncjs = require('async');
 var nodeunit = require('nodeunit');
 var ex = require('../lib/jdbc-example');
 
-var insertUser = function(id, ps, callback) {
+var insertUser = function(ps, id, callback) {
   ps.setInt(1, id, function(err) {
     if (err) {
       callback(err);
@@ -25,9 +25,17 @@ var insertUser = function(id, ps, callback) {
   });
 };
 
+var notone = function(n, callback) {
+  if (n != 1) {
+    callback(true);
+  } else {
+    callback(false);
+  }
+};
+
 exports.insert = {
-  initialize: function(test) {
-    ex.initialize(function(err, result) {
+  initderby: function(test) {
+    ex.initDerby(function(err, result) {
       test.expect(1);
       test.ok(result);
       test.done();
@@ -35,12 +43,12 @@ exports.insert = {
   },
   insert: function(test) {
     ex.tableexists(null, null, 'BLAH', function(err, exists) {
+      test.expect(3);
       if (exists) {
         ex.update("INSERT INTO BLAH "
                 + "VALUES "
                 + "(1, 'Jason', CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP)",
                 function(err, result) {
-                  test.expect(3);
                   test.equal(err, null);
                   test.ok(result);
                   test.equal(result, 1);
@@ -58,21 +66,16 @@ exports.insert = {
              + "(?, ?, CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP)",
       function(err, preparedstatement) {
         asyncjs.times(1000, function(n, next) {
-          insertUser(n, preparedstatement, function(err, result) {
+          insertUser(preparedstatement, n, function(err, result) {
             next(err, result);
           });
         }, function(err, results) {
           if (err) {
             console.log(err);
           } else {
-            asyncjs.filter(results, function(n, callback) {
-              if (n != 1) {
-                callback(true);
-              } else {
-                callback(false);
-              }
-            }, function(results) {
-              test.expect(1);
+            test.expect(2);
+            test.equal(results.length, 1000);
+            asyncjs.filter(results, notone, function(results) {
               test.equal(results.length, 0);
               test.done();
             });

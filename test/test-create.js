@@ -4,8 +4,15 @@ var nodeunit = require('nodeunit');
 var ex = require('../lib/jdbc-example');
 
 exports.create = {
-  initialize: function(test) {
-    ex.initialize(function(err, result) {
+  initderby: function(test) {
+    ex.initDerby(function(err, result) {
+      test.expect(1);
+      test.ok(result);
+      test.done();
+    });
+  },
+  inithsqldb: function(test) {
+    ex.initHSQLDB(function(err, result) {
       test.expect(1);
       test.ok(result);
       test.done();
