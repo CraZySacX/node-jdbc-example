@@ -25,13 +25,7 @@ var insertUser = function(ps, id, callback) {
   });
 };
 
-var notone = function(n, callback) {
-  if (n != 1) {
-    callback(true);
-  } else {
-    callback(false);
-  }
-};
+var notone = function(n, c) { if (n != 1) { c(true); } else { c(false); }};
 
 exports.insert = {
   initderby: function(test) {
