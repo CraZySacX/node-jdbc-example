@@ -8,8 +8,8 @@
   },
   "devDependencies": {
     "async": "*",
-    "nodeunit": "*",
-    "underscore": "*"
+    "lodash": "*",
+    "nodeunit": "*"
   },
   "scripts": {
     "pretest": "bin\/startdbs",
