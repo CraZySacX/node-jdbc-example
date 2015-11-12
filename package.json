@@ -4,7 +4,7 @@
   "description": "Node JDBC example",
   "main": "index.js",
   "dependencies": {
-    "jdbc": "=0.1.1-pre.6"
+    "jdbc": "=0.1.4"
   },
   "devDependencies": {
     "async": "*",
